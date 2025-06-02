@@ -1,159 +1,159 @@
 /* prettier-ignore */
 :root {
-  --plugin-search-input-bg           : var(--form-element-bg);
-  --plugin-search-input-border-color : var(--sidebar-border-color);
-  --plugin-search-input-border-radius: var(--form-element-border-radius);
-  --plugin-search-input-color        : var(--form-element-color);
-  --plugin-search-kbd-bg             : var(--color-bg);
-  --plugin-search-kbd-border         : 1px solid var(--color-mono-3);
-  --plugin-search-kbd-border-radius  : 4px;
-  --plugin-search-kbd-color          : var(--color-mono-5);
-  --plugin-search-margin             : 10px;
-  --plugin-search-reset-bg           : var(--theme-color);
-  --plugin-search-reset-border       : transparent;
-  --plugin-search-reset-border-radius: var(--border-radius);
-  --plugin-search-reset-color        : #fff;
+  --plugin-search-input-bg           : var(--form-element-bg); /* 搜索输入框背景颜色 */
+  --plugin-search-input-border-color : var(--sidebar-border-color); /* 搜索输入框边框颜色 */
+  --plugin-search-input-border-radius: var(--form-element-border-radius); /* 搜索输入框边框半径 */
+  --plugin-search-input-color        : var(--form-element-color); /* 搜索输入框文字颜色 */
+  --plugin-search-kbd-bg             : var(--color-bg); /* 快捷键显示背景颜色 */
+  --plugin-search-kbd-border         : 1px solid var(--color-mono-3); /* 快捷键显示边框 */
+  --plugin-search-kbd-border-radius  : 4px; /* 快捷键显示边框半径 */
+  --plugin-search-kbd-color          : var(--color-mono-5); /* 快捷键显示文字颜色 */
+  --plugin-search-margin             : 10px; /* 搜索组件外边距 */
+  --plugin-search-reset-bg           : var(--theme-color); /* 清除按钮背景颜色 */
+  --plugin-search-reset-border       : transparent; /* 清除按钮边框 */
+  --plugin-search-reset-border-radius: var(--border-radius); /* 清除按钮边框半径 */
+  --plugin-search-reset-color        : #fff; /* 清除按钮文字颜色 */
 }
 
 .search {
-  margin: var(--plugin-search-margin);
+  margin: var(--plugin-search-margin); /* 设置搜索组件外边距 */
 }
 
-/* Input */
+/* 输入框样式 */
 /* ================================== */
 .search .input-wrap {
-  position: relative;
+  position: relative; /* 设置相对定位 */
 }
 
 .search input {
-  width: 100%;
-  padding-inline-end: 36px;
-  border: 1px solid var(--plugin-search-input-border-color);
-  border-radius: var(--plugin-search-input-border-radius);
-  background: var(--plugin-search-input-bg);
-  color: var(--plugin-search-input-color);
+  width: 100%; /* 设置输入框宽度 */
+  padding-inline-end: 36px; /* 设置内边距 */
+  border: 1px solid var(--plugin-search-input-border-color); /* 设置边框 */
+  border-radius: var(--plugin-search-input-border-radius); /* 设置边框半径 */
+  background: var(--plugin-search-input-bg); /* 设置背景颜色 */
+  color: var(--plugin-search-input-color); /* 设置文字颜色 */
 }
 
 .search input::-webkit-search-decoration,
 .search input::-webkit-search-cancel-button {
-  appearance: none;
+  appearance: none; /* 移除默认的搜索装饰和取消按钮 */
 }
 
 .search .clear-button,
 .search .kbd-group {
-  visibility: hidden;
-  display: flex;
-  gap: 0.15em;
-  position: absolute;
-  right: 7px;
-  top: 50%;
-  opacity: 0;
-  translate: 0 -50%;
-  transition-property: opacity, visibility;
-  transition-duration: var(--duration-medium);
+  visibility: hidden; /* 初始状态下隐藏清除按钮和快捷键显示 */
+  display: flex; /* 设置为弹性布局 */
+  gap: 0.15em; /* 设置间距 */
+  position: absolute; /* 设置绝对定位 */
+  right: 7px; /* 设置右边距 */
+  top: 50%; /* 设置顶部对齐 */
+  opacity: 0; /* 设置透明度 */
+  translate: 0 -50%; /* 设置平移 */
+  transition-property: opacity, visibility; /* 设置过渡属性 */
+  transition-duration: var(--duration-medium); /* 设置过渡持续时间 */
 }
 
-/* Note: invalid = empty, valid = not empty */
+/* 仅当输入框无效且获得焦点或悬停时，或者当快捷键显示悬停时，显示清除按钮和快捷键显示 */
 .search input:valid ~ .clear-button,
 .search input:invalid:where(:focus, :hover) ~ .kbd-group,
 .search .kbd-group:hover {
-  visibility: visible;
-  opacity: 1;
+  visibility: visible; /* 显示清除按钮和快捷键显示 */
+  opacity: 1; /* 设置不透明度 */
 }
 
 .search .clear-button {
-  --_button-size: 20px;
-  --_content-size: 12px;
+  --_button-size: 20px; /* 清除按钮尺寸 */
+  --_content-size: 12px; /* 清除按钮内容尺寸 */
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: var(--_button-size);
-  width: var(--_button-size);
-  border: var(--plugin-search-reset-border);
-  border-radius: var(--plugin-search-reset-border-radius);
-  background: var(--plugin-search-reset-bg);
-  cursor: pointer;
+  display: flex; /* 设置为弹性布局 */
+  align-items: center; /* 垂直居中对齐 */
+  justify-content: center; /* 水平居中对齐 */
+  height: var(--_button-size); /* 设置高度 */
+  width: var(--_button-size); /* 设置宽度 */
+  border: var(--plugin-search-reset-border); /* 设置边框 */
+  border-radius: var(--plugin-search-reset-border-radius); /* 设置边框半径 */
+  background: var(--plugin-search-reset-bg); /* 设置背景颜色 */
+  cursor: pointer; /* 设置鼠标指针样式 */
 }
 
 .search .clear-button::before,
 .search .clear-button::after {
-  content: '';
-  position: absolute;
-  height: 2px;
-  width: var(--_content-size);
-  color: var(--plugin-search-reset-color);
-  background: var(--plugin-search-reset-color);
+  content: ''; /* 设置内容为空 */
+  position: absolute; /* 设置绝对定位 */
+  height: 2px; /* 设置高度 */
+  width: var(--_content-size); /* 设置宽度 */
+  color: var(--plugin-search-reset-color); /* 设置颜色 */
+  background: var(--plugin-search-reset-color); /* 设置背景颜色 */
 }
 
 .search .clear-button::before {
-  rotate: 45deg;
+  rotate: 45deg; /* 旋转45度 */
 }
 
 .search .clear-button::after {
-  rotate: -45deg;
+  rotate: -45deg; /* 旋转-45度 */
 }
 
 .search kbd {
-  border: var(--plugin-search-kbd-border);
-  border-radius: var(--plugin-search-kbd-border-radius);
-  background: var(--plugin-search-kbd-bg);
-  color: var(--plugin-search-kbd-color);
-  font-size: var(--font-size-s);
+  border: var(--plugin-search-kbd-border); /* 设置边框 */
+  border-radius: var(--plugin-search-kbd-border-radius); /* 设置边框半径 */
+  background: var(--plugin-search-kbd-bg); /* 设置背景颜色 */
+  color: var(--plugin-search-kbd-color); /* 设置文字颜色 */
+  font-size: var(--font-size-s); /* 设置字体大小 */
 }
 
-/* Results */
+/* 结果样式 */
 /* ================================== */
 .search a:hover {
-  color: var(--theme-color);
+  color: var(--theme-color); /* 设置悬停时的链接颜色 */
 }
 
 .search .results-panel:empty {
-  display: none;
+  display: none; /* 当结果面板为空时不显示 */
 }
 
-/* Hide other sidebar items when results are shown */
+/* 当结果显示时，隐藏其他侧边栏项目 */
 .search:has(.results-panel:not(:empty)) ~ * {
-  display: none;
+  display: none; /* 隐藏其他侧边栏项目 */
 }
 
-/* Dim other sidebar items when no results are found */
+/* 当没有结果显示或输入框获得焦点时，模糊显示其他侧边栏项目 */
 .search:where(:has(input:valid:focus), :has(.results-panel::empty)) ~ * {
-  opacity: 0.2;
+  opacity: 0.2; /* 设置模糊度 */
 }
 
 .search .matching-post {
-  overflow: hidden;
-  padding: 1em 0 1.2em 0;
-  border-bottom: 1px solid var(--color-mono-2);
+  overflow: hidden; /* 隐藏溢出内容 */
+  padding: 1em 0 1.2em 0; /* 设置内边距 */
+  border-bottom: 1px solid var(--color-mono-2); /* 设置底部边框 */
 }
 
 .search .matching-post:hover a {
-  text-decoration-color: transparent;
+  text-decoration-color: transparent; /* 设置悬停时的链接下划线颜色 */
 }
 
 .search .matching-post:hover .title {
-  text-decoration: inherit;
-  text-decoration-color: var(--link-underline-color-hover);
+  text-decoration: inherit; /* 继承悬停时的标题下划线样式 */
+  text-decoration-color: var(--link-underline-color-hover); /* 设置悬停时的标题下划线颜色 */
 }
 
 .search .matching-post .title {
-  margin: 0 0 0.5em 0;
-  line-height: 1.4;
+  margin: 0 0 0.5em 0; /* 设置标题外边距 */
+  line-height: 1.4; /* 设置行高 */
 }
 
 .search .matching-post .content {
-  margin: 0;
-  color: var(--color-mono-6);
-  font-size: var(--font-size-s);
+  margin: 0; /* 设置内容外边距 */
+  color: var(--color-mono-6); /* 设置内容文字颜色 */
+  font-size: var(--font-size-s); /* 设置字体大小 */
 }
 
 .search .results-status {
-  margin-bottom: 0;
-  color: var(--color-mono-6);
-  font-size: var(--font-size-s);
+  margin-bottom: 0; /* 设置结果状态外边距 */
+  color: var(--color-mono-6); /* 设置结果状态文字颜色 */
+  font-size: var(--font-size-s); /* 设置字体大小 */
 }
 
 .search .results-status:empty {
-  display: none;
+  display: none; /* 当结果状态为空时不显示 */
 }
